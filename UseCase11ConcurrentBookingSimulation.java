@@ -17,7 +17,6 @@ public class UseCase11ConcurrentBookingSimulation {
         bookingQueue.add(new BookingRequest("Dave", "SingleRoom")); // Should fail if no room left
         bookingQueue.add(new BookingRequest("Eve", "DoubleRoom")); // Should fail if no room left
 
-        // Step 3: Create threads simulating multiple guests booking concurrently
         Thread t1 = new Thread(new ConcurrentBookingProcessor(bookingQueue, inventory), "Thread-1");
         Thread t2 = new Thread(new ConcurrentBookingProcessor(bookingQueue, inventory), "Thread-2");
         Thread t3 = new Thread(new ConcurrentBookingProcessor(bookingQueue, inventory), "Thread-3");
